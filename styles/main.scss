@@ -1,0 +1,165 @@
+@use './variables';
+@use 'mixins';
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: variables.$font-sans;
+  color: variables.$color-text;
+  background-color: variables.$color-bg;
+  padding: 2rem 1rem;
+}
+
+header {
+  max-width: variables.$max-width;
+  margin: 0 auto 1.5rem;
+  @include mixins.card(1rem);
+  background: linear-gradient(90deg, rgba(255,255,255,0.06), rgba(255,255,255,0.06));
+
+    h1 { 
+        margin: 0; 
+        font-size: 1.6rem; 
+        color: variables.$color-text;
+      }
+}
+
+main {
+  max-width: variables.$max-width;
+  margin: 0 auto 2rem;
+  @include mixins.card(1rem);
+    p { 
+      color: variables.$color-muted; 
+      line-height: 1.5;
+    }
+}
+
+.form {
+  display: grid;
+  grid-template-columns:  1fr;
+  gap: variables.$gap;
+  width:100%;
+
+
+ /* @include respond(small) {
+    grid-template-columns: 1fr;
+  }*/
+
+  .form__label 
+  { display:block; 
+    text-align:left;
+    color: variables.$color-muted; 
+    font-size: .95rem;
+    width:80%; 
+  }
+  .form__label--center{
+    text-align:center;
+    width:90%;
+    margin-bottom:0.2rem;
+  }
+  .form__select, .form__input {
+    width: 85%;
+    text-align: left;
+    padding: .6rem .2rem;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.06);
+    background: transparent;
+    color: variables.$color-text;
+    font-size: 1rem;
+  }
+  .form__select option{
+    background: variables.$color-surface;
+    color: variables.$color-text;
+  }
+  .form__select:focus, .form__input:focus{
+    outline: none;
+   border: 1px solid variables.$color-accent;
+  } 
+  .form__select:hover, .form__input:hover {
+    border: 1px solid variables.$color-accent;
+  }
+
+  .form__input--center{
+    text-align:center;
+  }
+
+  .form__time-inputs{
+    display:flex;
+    flex-direction:column;
+    width:50%;
+    column-gap: .5rem;
+    
+  }
+
+
+  fieldset { 
+    border: none; 
+    padding: 0; 
+    margin: 0; 
+    grid-column: 1 / -1; 
+    display:flex; 
+    align-items:center; 
+    width:100%; 
+
+  }
+
+  .form__button { 
+    @include mixins.button-style($bg: variables.$color-accent); 
+    width:100%; 
+    &.boton--disabled{
+      pointer-events: none;
+      opacity: 0.5;
+      background-color: variables.$color-muted;
+    }
+  }
+
+
+  .form__error {
+    
+    position:absolute;
+    top:0;
+    right:0;
+    background: #f70505;
+    background: linear-gradient(90deg, rgba(247, 5, 5, 0.64) 50%, rgba(252, 96, 69, 0.64) 100%);
+    width:40%;
+    margin-top:1rem;
+    text-align:center;
+    padding: .5rem;
+    border-radius: 10px;
+    color: variables.$color-text;
+  }
+  .form__message {
+    font-size: 1rem;
+    color: variables.$color-text;
+  }
+}
+.form__result {
+    background-color:variables.$color-bg;
+    width:100%;
+    margin-top:0.5rem;
+    text-align:left;
+    padding: .5rem;
+    border-radius: 10px;
+    color: variables.$color-text;
+    .form__title{
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+      text-align:center;
+    }
+    .form__message{
+      font-size: 1rem;
+      color: variables.$color-text;
+    }
+    
+}
+.form__restart{
+  @include mixins.button-style($bg: variables.$color-restart); 
+    width:100%;
+    margin-top:0.5rem;
+    color:black;
+}
+
+
+
+footer { max-width: variables.$max-width; margin: 0 auto; color: variables.$color-muted; text-align: center; padding: .75rem; }

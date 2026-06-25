@@ -1,0 +1,26 @@
+@use 'variables';
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin card($padding) {
+  background-color: variables.$color-surface;
+  padding: $padding;
+  border-radius: variables.$radius;
+  box-shadow: 0 8px 24px rgba(2,8,20,0.6);
+}
+
+@mixin button-style($bg: variables.$color-primary, $color: variables.$color-text) {
+  background: $bg;
+  color: $color;
+  padding: 0.6rem 1rem;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: transform 160ms ease, box-shadow 160ms ease, opacity 120ms ease;
+  &:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.25); }
+  &:active { transform: translateY(0); }
+}

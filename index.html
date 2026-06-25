@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Simulador de ritmos de Carrera</title>
+</head>
+<body>
+    <header>
+        <h1>Simulador de ritmos de Carrera</h1>
+    </header>
+    <main>
+        <p>Bienvenido al simulador de ritmos de carrera. Aquí podrás calcular tus tiempos estimados para diferentes distancias basándote en tu ritmo actual.</p>
+        <form id="FormularioCarrera" class="form">
+            <label for="distancia"  class="form__label">Distancia</label>
+            <select name="distancia" id="distancia" class="form__select" required>
+                <option value="" disabled selected>Selecciona una distancia</option>
+                <option value="5">5 km</option>
+                <option value="10">10 km</option>
+                <option value="21">21 km</option>
+                <option value="42">42 km</option>
+            </select>
+            <fieldset>
+                <legend>Tiempo Objetivo</legend>
+                <div class="form__time-inputs"> 
+                <label for="horas" class="form__label form__label--center">Horas</label>
+                <input type="number" id="horas" name="ritmo"  class="form__input form__input--center" placeHolder="00" required>
+                </div>
+
+                <div class="form__time-inputs">
+                <label for="minutos" class="form__label form__label--center" >Minutos</label>
+                <input type="number" id="minutos" name="ritmo" class="form__input form__input--center" placeHolder="00" min="0" max="59" required>
+                </div>
+                
+                <div class="form__time-inputs">
+                <label for="segundos" class="form__label form__label--center">Segundos</label>
+                <input type="number" id="segundos" name="ritmo" class="form__input form__input--center" placeHolder="00" min="0" max="59">
+                </div>
+            </fieldset>
+            
+            
+
+            <button type="button" id="botonEnviar" class="form__button">Calcular</button>
+            <div id="errorFaltaDatos" class="form__error" style="display: none;">
+                <h1>Mensaje de error</h1>
+                <p class="form__message">Por favor, completa todos los campos antes de calcular.</p>
+            </div>
+            <div id="errorValorIncorrecto" class="form__error" style="display: none;">
+                <h1>Mensaje de error</h1>
+                <p class="form__message">Por favor, introduce el valor correcto en el campo de minutos.</p>
+            </div>
+        </form>
+        <section id="resultado"> 
+            <button id="botonReiniciar" class="form__restart" style="display: none;">Reiniciar</button>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2026 Simulador de Ritmos de Carrera. Todos los derechos reservados.</p>
+    </footer>
+    <script src="./main.js"></script>
+</body>
+</html>
